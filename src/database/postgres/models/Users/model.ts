@@ -5,8 +5,6 @@ import {
   DataType,
   CreatedAt,
   UpdatedAt,
-  PrimaryKey,
-  AllowNull,
 } from "sequelize-typescript";
 import sequelize from "../../connection";
 import "dotenv/config";

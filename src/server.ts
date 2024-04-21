@@ -24,11 +24,15 @@ const AccessControlAllowHeaders = [
 ];
 const app = express();
 const httpServer = http.createServer(app);
+
+// ApolloServer で GraphQL を動かす
+// 1つのEndPointで複数のDataを取得できる
 const server = new ApolloServer({
   schema,
   plugins: [ApolloServerPluginDrainHttpServer({ httpServer })],
 });
 
+// (async () => {})(); 非同期関数を定義し、すぐに実行。
 (async () => {
   await server
     .start()

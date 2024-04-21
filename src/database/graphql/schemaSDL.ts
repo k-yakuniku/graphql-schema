@@ -6,6 +6,11 @@ import {
   InputUserAges,
 } from "../postgres/models/Users/controller";
 
+// 第一引数が親オブジェクト（この場合は無視されます）で、
+// 第二引数がGraphQLから渡される引数のオブジェクト
+// (_: any, user: InputUserAges)
+// _: any => 特定のリゾルバでは使用されないので、この引数を無視して使用する
+
 export const typeDefs = `#graphql
 
 # GraphQL default Scalar値
@@ -25,6 +30,7 @@ type Query {
     users: [User!]
 }
 type Mutation {
+  # String! としても ""空は通る。空の文字列として登録される
     create(email: String!, password: String!): User
     update(email: String!, name: String, introduction: String): Int
     delete(email: String!, password: String!): Int

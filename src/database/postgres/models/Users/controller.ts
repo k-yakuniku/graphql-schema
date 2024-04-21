@@ -1,4 +1,5 @@
-import UserModel from "./model";
+//import UserModel from "./model";
+import UserModel from "./modelTest";
 
 interface InputUserAges {
   email?: string;
@@ -19,6 +20,8 @@ async function updateUser(user: InputUserAges) {
     { ...user },
     { where: { email: user.email } }
   );
+  // [1] は存在しない
+  // [0] update した Recode の総数を返す
   return updatecount[0];
 }
 async function deleteUser(user: InputUserAges) {

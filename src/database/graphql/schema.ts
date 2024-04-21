@@ -83,6 +83,7 @@ const MutationType = new GraphQLObjectType({
       //     email: { type: GraphQLString },
       //     password: { type: GraphQLString },
       //   },
+      // userInput: { email, pass },となるので注意
       args: { userInput: { type: UserInputType } },
       resolve: async (parent, args, context, info) => {
         const newUser = await createUser(args.userInput);
