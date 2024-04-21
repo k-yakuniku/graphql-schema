@@ -1,5 +1,5 @@
-//import UserModel from "./model";
-import UserModel from "./modelTest";
+import UserModel from "./model";
+//import UserModel from "./modelTest";
 
 interface InputUserAges {
   email?: string;
